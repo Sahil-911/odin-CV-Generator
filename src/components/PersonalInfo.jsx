@@ -1,58 +1,100 @@
+import React, { useState } from "react";
 import { Button, Container, Input, Typography } from "@mui/material";
-import { useState } from "react";
-import theme from "./Theme";
+import { ExpandMore, ExpandLess } from "@mui/icons-material";
 
 function PersonalInfo() {
-  const [showMore, setshowMore] = useState(false);
+  const [showMore, setShowMore] = useState(false);
 
   const handleShow = () => {
-    setshowMore(!showMore);
+    setShowMore(!showMore);
   };
 
   const divisionStyle = {
     color: "text.primary",
-    // height: "100vh",
     display: "flex",
     flexDirection: "row",
-    bgcolor: "primary.main",
+    bgcolor: "background.paper",
+    my: 0.5,
+    borderRadius: 1,
+    alignItems: "center",
   };
 
-  const bodyTypo = {
-    color: "text.primary",
-    // m:3,
+  const bodyContainerStyle = {
+    display: "flex",
+    alignItems: "center",
+  };
+
+  const labelStyle = {
+    marginRight: "2.4rem",
+  };
+
+  const textAreaStyle = {
+    width: "80%",
+    padding: "8px",
+    borderRadius: "4px",
+    maxHeight: "120px",
+    overflowY: "auto",
+    resize: "none",
+    border: "1px solid #ccc",
   };
 
   return (
     <Container sx={{ ...divisionStyle, flexDirection: "column" }}>
-      <Container sx={{ ...divisionStyle }}>
-        <Typography variant="h6">Personal Info</Typography>
+      <Container sx={divisionStyle}>
+        <Typography variant="h6" sx={{ marginBottom: 1 }}>
+          Personal Info
+        </Typography>
         <Button
           onClick={handleShow}
           sx={{ marginLeft: "auto", color: "text.primary" }}
         >
-          {showMore ? "▲" : "▼"}
+          {showMore ? <ExpandMore /> : <ExpandLess />}
         </Button>
       </Container>
       {showMore && (
-        <Typography variant="body1" sx={{ ...bodyTypo }}>
-          <Container>
-            <Typography variant="boody2">First Name: </Typography>
-            <Input type="text" sx={{ marginLeft:'auto'}}></Input>
-          </Container>
-          <Container>
-            <Typography variant="boody2">Last Name: </Typography>
-            <Input type="text" sx={{ marginLeft:'auto'}}></Input>
-          </Container>
-          <Container>
-            <Typography variant="boody2">Mobile No: </Typography>
-            <Input type="text" sx={{ marginLeft:'auto'}}></Input>
-          </Container>
-          <Container>
-            <Typography variant="boody2">E-mail: </Typography>
-            <Input type="text" sx={{ marginLeft:'auto'}}></Input>
-          </Container>
-
-        </Typography>
+        <Container sx={bodyContainerStyle}>
+          <Typography variant="body1">
+            <Container sx={bodyContainerStyle}>
+              <Typography variant="body2" sx={labelStyle}>
+                First Name:
+              </Typography>
+              <Input type="text" />
+            </Container>
+            <Container sx={bodyContainerStyle}>
+              <Typography variant="body2" sx={labelStyle}>
+                Last Name:
+              </Typography>
+              <Input type="text" />
+            </Container>
+            <Container sx={bodyContainerStyle}>
+              <Typography
+                variant="body2"
+                sx={{ ...labelStyle, marginRight: 5.2 }}
+              >
+                Mobile No:
+              </Typography>
+              <Input type="text" />
+            </Container>
+            <Container sx={{ ...bodyContainerStyle, marginBottom: 1 }}>
+              <Typography
+                variant="body2"
+                sx={{ ...labelStyle, marginRight: 8.2 }}
+              >
+                E-mail:
+              </Typography>
+              <Input type="text" />
+            </Container>
+            <Container sx={{ ...bodyContainerStyle, marginBottom: 2 }}>
+              <Typography variant="body2" sx={{ marginRight: 4 }}>
+                About Yourself:
+              </Typography>
+              <textarea
+                placeholder="Tell us about yourself..."
+                style={textAreaStyle}
+              />
+            </Container>
+          </Typography>
+        </Container>
       )}
     </Container>
   );

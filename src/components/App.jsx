@@ -1,7 +1,12 @@
 import React from "react";
-import { ThemeProvider, CssBaseline, Container, Typography } from "@mui/material";
+import {
+  ThemeProvider,
+  CssBaseline,
+  Container,
+  Typography,
+} from "@mui/material";
 import theme from "./Theme";
-import PersonalInfo from './PersonalInfo';
+import PersonalInfo from "./PersonalInfo";
 
 const App = () => {
   const containerCommonStyle = {
@@ -28,24 +33,40 @@ const App = () => {
   };
 
   const pageContainerStyle = {
-    bgcolor: 'text.primary',
-    color: 'primary.main',
-    height: '85vh',
-  }
+    bgcolor: "text.primary",
+    color: "primary.main",
+    height: "85vh",
+  };
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container sx={{ ...containerCommonStyle, ...mainContainerStyle }}>
-        <Container sx={{ ...containerCommonStyle, ...leftContainerStyle, flexDirection:'column' }}>
-          <Typography variant="h4">Automatic CV Generator</Typography>
+        <Container
+          sx={{
+            ...containerCommonStyle,
+            ...leftContainerStyle,
+            flexDirection: "column",
+          }}
+        >
+          <Typography variant="h4" sx={{ marginTop: 1 }}>
+            Automatic CV Generator
+          </Typography>
           <Typography>
-            <PersonalInfo/>
+            <PersonalInfo />
           </Typography>
         </Container>
-        <Container sx={{ ...containerCommonStyle, ...rightContainerStyle, flexDirection:'column' }}>
-          <Typography variant="h4">Page</Typography>
-          <Container sx={{...pageContainerStyle}}></Container>
+        <Container
+          sx={{
+            ...containerCommonStyle,
+            ...rightContainerStyle,
+            flexDirection: "column",
+          }}
+        >
+          <Typography variant="h4" sx={{ marginTop: 1 }}>
+            Page
+          </Typography>
+          <Container sx={{ ...pageContainerStyle }}></Container>
         </Container>
       </Container>
     </ThemeProvider>
