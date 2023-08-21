@@ -9,6 +9,7 @@ import theme from "./Theme";
 import PersonalInfo from "./PersonalInfo";
 import Workexp from "./Workexp";
 import Photo from "./Photo";
+import Skills from "./Skills";
 
 const App = () => {
   const containerCommonStyle = {
@@ -31,7 +32,10 @@ const App = () => {
 
   const rightContainerStyle = {
     bgcolor: "background.paper",
+    // position: "fixed", // Set position to fixed
     width: "50%",
+    height: "100vh",
+    overflowY: "auto",
   };
 
   const pageContainerStyle = {
@@ -57,6 +61,7 @@ const App = () => {
           <Photo />
           <PersonalInfo />
           <Workexp />
+          <Skills />
         </Container>
         <Container
           sx={{

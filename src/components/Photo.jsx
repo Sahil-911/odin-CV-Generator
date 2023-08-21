@@ -31,7 +31,7 @@ function Photo() {
   };
 
   const inputStyle = {
-    width: "80%",
+    width: "60%",
     padding: "8px",
     borderRadius: "4px",
     maxHeight: "120px",
@@ -55,7 +55,7 @@ function Photo() {
       </Container>
       {showMore && (
         <Container sx={bodyContainerStyle}>
-          <Typography variant="body1" sx={{ marginRight: 4 }}>
+          <Typography variant="body1" sx={{ mx:3.5, paddingBottom:2 }}>
             Photo:
           </Typography>
           <Input
