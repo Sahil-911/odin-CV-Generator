@@ -48,7 +48,7 @@ function Workexp() {
           onClick={handleShow}
           sx={{ marginLeft: "auto", color: "text.primary" }}
         >
-          {showMore ? <ExpandMore /> : <ExpandLess />}
+          {showMore ? <ExpandLess /> : <ExpandMore />}
         </Button>
       </Container>
       {showMore && (
