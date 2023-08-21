@@ -2,11 +2,46 @@ import React, { useState } from "react";
 import { Button, Container, Typography, TextField } from "@mui/material";
 import { ExpandMore, ExpandLess } from "@mui/icons-material";
 
-function PersonalInfo() {
+function PersonalInfo({ cvDetails, setCVDetails }) {
   const [showMore, setShowMore] = useState(false);
 
   const handleShow = () => {
     setShowMore(!showMore);
+  };
+  
+  const handleFirstNameChange = (e) => {
+    setCVDetails((prevDetails) => ({
+      ...prevDetails,
+      firstName: e.target.value,
+    }));
+  };
+
+  const handleLastNameChange = (e) => {
+    setCVDetails((prevDetails) => ({
+      ...prevDetails,
+      lastName: e.target.value,
+    }));
+  };
+
+  const handlePhoneChange = (e) => {
+    setCVDetails((prevDetails) => ({
+      ...prevDetails,
+      phone: e.target.value,
+    }));
+  };
+
+  const handleEmailChange = (e) => {
+    setCVDetails((prevDetails) => ({
+      ...prevDetails,
+      email: e.target.value,
+    }));
+  };
+
+  const handleDescriptionChange = (e) => {
+    setCVDetails((prevDetails) => ({
+      ...prevDetails,
+      description: e.target.value,
+    }));
   };
 
   const divisionStyle = {
@@ -67,6 +102,8 @@ function PersonalInfo() {
                 label="First Name"
                 sx={{ ...TextFieldStyle }}
                 fullWidth
+                value={cvDetails.firstName}
+                onChange={handleFirstNameChange}
               />
             </Container>
             <Container sx={bodyContainerStyle}>
@@ -76,6 +113,8 @@ function PersonalInfo() {
                 label="Last Name"
                 sx={{ ...TextFieldStyle }}
                 fullWidth
+                value={cvDetails.lastName}
+                onChange={handleLastNameChange}
               />
             </Container>
             <Container sx={bodyContainerStyle}>
@@ -85,7 +124,9 @@ function PersonalInfo() {
                 label="Mobile No."
                 sx={{ ...TextFieldStyle }}
                 fullWidth
-              />
+                value={cvDetails.phone}
+                onChange={handlePhoneChange}
+                />
             </Container>
             <Container sx={{ ...bodyContainerStyle, marginBottom: 1 }}>
               <TextField
@@ -94,6 +135,8 @@ function PersonalInfo() {
                 label="Email ID"
                 sx={{ ...TextFieldStyle }}
                 fullWidth
+                value={cvDetails.email}
+                onChange={handleEmailChange}
               />
             </Container>
             <Container sx={{ ...bodyContainerStyle, marginBottom: 2 }}>
@@ -104,6 +147,8 @@ function PersonalInfo() {
                 variant="outlined"
                 label="About Yourself"
                 fullWidth
+                value={cvDetails.description}
+                onChange={handleDescriptionChange}
               />
             </Container>
           </Container>
