@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import {
   Button,
   Container,
-  Input,
+  // Input,
   Typography,
-  IconButton,
+  // IconButton,
+  TextField,
 } from "@mui/material";
 import { ExpandMore, ExpandLess, Add, Remove } from "@mui/icons-material";
 
@@ -44,6 +45,12 @@ function Education() {
     border: "1px solid #ccc",
   };
 
+  const TextFieldStyle = {
+    width: "80%",
+    borderRadius: "4px",
+    my: 1,
+  };
+
   return (
     <Container sx={{ ...divisionStyle, flexDirection: "column" }}>
       <Container sx={divisionStyle}>
@@ -61,16 +68,22 @@ function Education() {
         <Container sx={bodyContainerStyle}>
           <Container variant="body1">
             <Container sx={bodyContainerStyle}>
-              <Typography variant="body2" sx={labelStyle}>
-                School:
-              </Typography>
-              <Input type="text" />
+            <TextField
+                type="text"
+                variant="outlined"
+                label="School Name"
+                sx={{ ...TextFieldStyle }}
+                fullWidth
+              />
             </Container>
             <Container sx={{...bodyContainerStyle, marginBottom:2}}>
-              <Typography variant="body2" sx={labelStyle}>
-                Degree:
-              </Typography>
-              <Input type="text" />
+            <TextField
+                type="text"
+                variant="outlined"
+                label="Degree"
+                sx={{ ...TextFieldStyle }}
+                fullWidth
+              />
             </Container>
           </Container>
         </Container>

@@ -6,12 +6,12 @@ import {
   Typography,
 } from "@mui/material";
 import theme from "./Theme";
-import PersonalInfo from "./PersonalInfo";
-import Workexp from "./Workexp";
-import Photo from "./Photo";
-import Skills from "./Skills";
-import Education from "./Education";
-import Projects from "./Projects";
+import PersonalInfo from "./input_components/PersonalInfo";
+import Workexp from "./input_components/Workexp";
+import Photo from "./input_components/Photo";
+import Skills from "./input_components/Skills";
+import Education from "./input_components/Education";
+import Projects from "./input_components/Projects";
 
 const App = () => {
   const containerCommonStyle = {
@@ -77,7 +77,9 @@ const App = () => {
           <Typography variant="h4" sx={{ marginTop: 1 }}>
             Page
           </Typography>
-          <Container sx={{ ...pageContainerStyle }}></Container>
+          <Container sx={{ ...pageContainerStyle }}>
+            
+          </Container>
         </Container>
       </Container>
     </ThemeProvider>

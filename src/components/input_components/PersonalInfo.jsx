@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Button, Container, Input, Typography } from "@mui/material";
+import { Button, Container, Typography, TextField } from "@mui/material";
 import { ExpandMore, ExpandLess } from "@mui/icons-material";
 
-function Workexp() {
+function PersonalInfo() {
   const [showMore, setShowMore] = useState(false);
 
   const handleShow = () => {
@@ -38,11 +38,17 @@ function Workexp() {
     border: "1px solid #ccc",
   };
 
+  const TextFieldStyle = {
+    width: "80%",
+    borderRadius: "4px",
+    my: 1,
+  };
+
   return (
     <Container sx={{ ...divisionStyle, flexDirection: "column" }}>
       <Container sx={divisionStyle}>
         <Typography variant="h6" sx={{ marginBottom: 1 }}>
-          Work Experience
+          Personal Info
         </Typography>
         <Button
           onClick={handleShow}
@@ -55,48 +61,49 @@ function Workexp() {
         <Container sx={bodyContainerStyle}>
           <Container variant="body1">
             <Container sx={bodyContainerStyle}>
-              <Typography
-                variant="body2"
-                sx={{ ...labelStyle, marginRight: 5.5 }}
-              >
-                Company:
-              </Typography>
-              <Input type="text" />
+              <TextField
+                type="text"
+                variant="outlined"
+                label="First Name"
+                sx={{ ...TextFieldStyle }}
+                fullWidth
+              />
             </Container>
             <Container sx={bodyContainerStyle}>
-              <Typography
-                variant="body2"
-                sx={{ ...labelStyle, marginRight: 6.7 }}
-              >
-                Position:
-              </Typography>
-              <Input type="text" />
+              <TextField
+                type="text"
+                variant="outlined"
+                label="Last Name"
+                sx={{ ...TextFieldStyle }}
+                fullWidth
+              />
             </Container>
             <Container sx={bodyContainerStyle}>
-              <Typography
-                variant="body2"
-                sx={{ ...labelStyle, marginRight: 5.2 }}
-              >
-                Start Date:
-              </Typography>
-              <Input type="text" />
+              <TextField
+                type="text"
+                variant="outlined"
+                label="Mobile No."
+                sx={{ ...TextFieldStyle }}
+                fullWidth
+              />
             </Container>
             <Container sx={{ ...bodyContainerStyle, marginBottom: 1 }}>
-              <Typography
-                variant="body2"
-                sx={{ ...labelStyle, marginRight: 5.8 }}
-              >
-                End Date:
-              </Typography>
-              <Input type="text" />
+              <TextField
+                type="text"
+                variant="outlined"
+                label="Email ID"
+                sx={{ ...TextFieldStyle }}
+                fullWidth
+              />
             </Container>
             <Container sx={{ ...bodyContainerStyle, marginBottom: 2 }}>
-              <Typography variant="body2" sx={{ marginRight: 4 }}>
-                Description:
-              </Typography>
-              <textarea
-                placeholder="Tell us about your work experience..."
-                style={textAreaStyle}
+              <TextField
+                multiline
+                rows={4}
+                placeholder="Tell us about yourself..."
+                variant="outlined"
+                label="About Yourself"
+                fullWidth
               />
             </Container>
           </Container>
@@ -106,4 +113,4 @@ function Workexp() {
   );
 }
 
-export default Workexp;
+export default PersonalInfo;

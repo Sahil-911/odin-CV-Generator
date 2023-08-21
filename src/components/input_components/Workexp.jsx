@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Button, Container, Input, Typography } from "@mui/material";
+import { Button, Container, Input, Typography, TextField } from "@mui/material";
 import { ExpandMore, ExpandLess } from "@mui/icons-material";
 
-function PersonalInfo() {
+function Workexp() {
   const [showMore, setShowMore] = useState(false);
 
   const handleShow = () => {
@@ -21,7 +21,7 @@ function PersonalInfo() {
 
   const bodyContainerStyle = {
     display: "flex",
-    alignItems: "center",
+    // alignItems: "center",
   };
 
   const labelStyle = {
@@ -38,11 +38,17 @@ function PersonalInfo() {
     border: "1px solid #ccc",
   };
 
+  const TextFieldStyle = {
+    width: "80%",
+    borderRadius: "4px",
+    my: 1,
+  };
+
   return (
     <Container sx={{ ...divisionStyle, flexDirection: "column" }}>
       <Container sx={divisionStyle}>
         <Typography variant="h6" sx={{ marginBottom: 1 }}>
-          Personal Info
+          Work Experience
         </Typography>
         <Button
           onClick={handleShow}
@@ -55,42 +61,55 @@ function PersonalInfo() {
         <Container sx={bodyContainerStyle}>
           <Container variant="body1">
             <Container sx={bodyContainerStyle}>
-              <Typography variant="body2" sx={labelStyle}>
-                First Name:
-              </Typography>
-              <Input type="text" />
+            <TextField
+                type="text"
+                variant="outlined"
+                label="Company"
+                sx={{ ...TextFieldStyle }}
+                fullWidth
+              />
             </Container>
             <Container sx={bodyContainerStyle}>
-              <Typography variant="body2" sx={labelStyle}>
-                Last Name:
-              </Typography>
-              <Input type="text" />
+            <TextField
+                type="text"
+                variant="outlined"
+                label="Position"
+                sx={{ ...TextFieldStyle }}
+                fullWidth
+              />
             </Container>
-            <Container sx={bodyContainerStyle}>
-              <Typography
-                variant="body2"
-                sx={{ ...labelStyle, marginRight: 5.2 }}
-              >
-                Mobile No:
+            <Container sx={{...bodyContainerStyle, display:'flex', flexDirection:'column'}}>
+              <Typography variant="body1" sx={{ ...labelStyle }}>
+                Start Date:
               </Typography>
-              <Input type="text" />
+            <TextField
+                type="Date"
+                variant="outlined"
+                // label="Start Date"
+                sx={{ ...TextFieldStyle }}
+                fullWidth
+              />
             </Container>
-            <Container sx={{ ...bodyContainerStyle, marginBottom: 1 }}>
-              <Typography
-                variant="body2"
-                sx={{ ...labelStyle, marginRight: 8.2 }}
-              >
-                E-mail:
+            <Container sx={{...bodyContainerStyle, display:'flex', flexDirection:'column'}}>
+              <Typography variant="body1" sx={{ ...labelStyle }}>
+                End Date:
               </Typography>
-              <Input type="text" />
+            <TextField
+                type="Date"
+                variant="outlined"
+                // label="End Date"
+                sx={{ ...TextFieldStyle }}
+                fullWidth
+              />
             </Container>
             <Container sx={{ ...bodyContainerStyle, marginBottom: 2 }}>
-              <Typography variant="body2" sx={{ marginRight: 4 }}>
-                About Yourself:
-              </Typography>
-              <textarea
+            <TextField
+                multiline
+                rows={4}
                 placeholder="Tell us about yourself..."
-                style={textAreaStyle}
+                variant="outlined"
+                label="About Yourself"
+                fullWidth
               />
             </Container>
           </Container>
@@ -100,4 +119,4 @@ function PersonalInfo() {
   );
 }
 
-export default PersonalInfo;
+export default Workexp;

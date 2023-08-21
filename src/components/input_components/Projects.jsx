@@ -55,15 +55,7 @@ function Projects() {
   };
 
   const inputStyle = {
-    // padding: "8px",
-    // borderRadius: "4px",
-    // maxHeight: "120px",
-    // overflowY: "auto",
-    // resize: "none",
-    // m:1,
-    // // border: "1px solid #ccc",
-    // marginBottom: 2,
-    my: 2,
+    my: 1,
   };
 
   const iconStyle = {
