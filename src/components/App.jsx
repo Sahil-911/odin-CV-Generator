@@ -13,6 +13,7 @@ import Skills from "./input_components/Skills";
 import Education from "./input_components/Education";
 import Projects from "./input_components/Projects";
 import { useState } from "react";
+import CVDisplay from "./output_components/CVdisplay";
 
 const App = () => {
   const containerCommonStyle = {
@@ -37,7 +38,7 @@ const App = () => {
     bgcolor: "background.paper",
     // position: "fixed", // Set position to fixed
     width: "50%",
-    height: "100vh",
+    height: "100%",
     overflowY: "auto",
   };
 
@@ -59,9 +60,22 @@ const App = () => {
     StartDate: "",
     EndDate: "",
     Description: "",
-    Skills: "",
-    Education: "",
-    Projects: "",
+    Skills: [],
+    Education: [
+      {
+        degree: "",
+        school: "",
+        startDate: "",
+        endDate: "",
+      },
+    ],  
+    Projects: [
+      {
+        title: "",
+        description: "",
+        techStack: "",
+      }
+    ],
   });
 
   return (
@@ -97,10 +111,11 @@ const App = () => {
             flexDirection: "column",
           }}
         >
-          <Typography variant="h4" sx={{ marginTop: 1 }}>
+          <Typography variant="h4" sx={{ marginTop: 1 , marginBottom:10}}>
             Page
           </Typography>
-          <Container sx={{ ...pageContainerStyle }}></Container>
+          <CVDisplay cvDetails={cvDetails} />
+          {/* <Container sx={{ ...pageContainerStyle }}></Container> */}
         </Container>
       </Container>
     </ThemeProvider>

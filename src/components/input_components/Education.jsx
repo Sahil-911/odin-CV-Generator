@@ -12,34 +12,60 @@ function Education({ cvDetails, setCVDetails }) {
   const handleSchoolNameChange = (e) => {
     setCVDetails((prevDetails) => ({
       ...prevDetails,
-      Education: { ...prevDetails.Education, schoolName: e.target.value },
+      Education: [
+        {
+          ...prevDetails.Education[0],
+          schoolName: e.target.value,
+        },
+      ],
     }));
   };
+
   const handleSchoolGradesChange = (e) => {
     setCVDetails((prevDetails) => ({
       ...prevDetails,
-      Education: { ...prevDetails.Education, schoolGrades: e.target.value },
+      Education: [
+        {
+          ...prevDetails.Education[0],
+          schoolGrades: e.target.value,
+        },
+      ],
     }));
   };
 
   const handleCollegeNameChange = (e) => {
     setCVDetails((prevDetails) => ({
       ...prevDetails,
-      Education: { ...prevDetails.Education, collegeName: e.target.value },
+      Education: [
+        {
+          ...prevDetails.Education[0],
+          collegeName: e.target.value,
+        },
+      ],
     }));
   };
 
   const handleCollegeDegreeChange = (e) => {
     setCVDetails((prevDetails) => ({
       ...prevDetails,
-      Education: { ...prevDetails.Education, collegeDegree: e.target.value },
+      Education: [
+        {
+          ...prevDetails.Education[0],
+          collegeDegree: e.target.value,
+        },
+      ],
     }));
   };
 
   const handleCollegeGradesChange = (e) => {
     setCVDetails((prevDetails) => ({
       ...prevDetails,
-      Education: { ...prevDetails.Education, collegeGrades: e.target.value },
+      Education: [
+        {
+          ...prevDetails.Education[0],
+          collegeGrades: e.target.value,
+        },
+      ],
     }));
   };
 
@@ -66,8 +92,15 @@ function Education({ cvDetails, setCVDetails }) {
 
   return (
     <Container sx={{ ...divisionStyle }}>
-      <Container sx={{...divisionStyle, display:'flex', flexDirection:'row', justifyContent:'flex-start'}}>
-        <Typography variant="h6" sx={{marginBottom: 1 }}>
+      <Container
+        sx={{
+          ...divisionStyle,
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "flex-start",
+        }}
+      >
+        <Typography variant="h6" sx={{ marginBottom: 1 }}>
           Education
         </Typography>
         <Button

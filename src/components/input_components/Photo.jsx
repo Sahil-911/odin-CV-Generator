@@ -7,7 +7,7 @@ function Photo({ accept, inputLabel, cvDetails, setCVDetails }) {
   const [showMore, setShowMore] = useState(false);
 
   const handlePhoto = (e) => {
-    setPhoto(URL.createObjectURL(e.target.files[0]));
+    // setPhoto(URL.createObjectURL(e.target.files[0]));
     setCVDetails((prevDetails) => ({
       ...prevDetails,
       photo: URL.createObjectURL(e.target.files[0]),
