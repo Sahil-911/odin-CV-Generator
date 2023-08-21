@@ -2,11 +2,46 @@ import React, { useState } from "react";
 import { Button, Container, Input, Typography, TextField } from "@mui/material";
 import { ExpandMore, ExpandLess } from "@mui/icons-material";
 
-function Workexp() {
+function Workexp({ cvDetails, setCVDetails }) {
   const [showMore, setShowMore] = useState(false);
 
   const handleShow = () => {
     setShowMore(!showMore);
+  };
+
+  const handleCompanyChange = (e) => {
+    setCVDetails((prevDetails) => ({
+      ...prevDetails,
+      Company: e.target.value,
+    }));
+  };
+
+  const handlePositionChange = (e) => {
+    setCVDetails((prevDetails) => ({
+      ...prevDetails,
+      Position: e.target.value,
+    }));
+  };
+
+  const handleStartDateChange = (e) => {
+    setCVDetails((prevDetails) => ({
+      ...prevDetails,
+      StartDate: e.target.value,
+    }));
+  };
+
+  const handleEndDateChange = (e) => {
+    setCVDetails((prevDetails) => ({
+      ...prevDetails,
+      EndDate: e.target.value,
+    }));
+  };
+
+  const handleDescriptionChange = (e) => {
+    setCVDetails((prevDetails) => ({
+      ...prevDetails,
+      Description: e.target.value,
+    }));
   };
 
   const divisionStyle = {
@@ -61,55 +96,63 @@ function Workexp() {
         <Container sx={bodyContainerStyle}>
           <Container variant="body1">
             <Container sx={bodyContainerStyle}>
-            <TextField
+              <TextField
                 type="text"
                 variant="outlined"
                 label="Company"
                 sx={{ ...TextFieldStyle }}
                 fullWidth
+                value={cvDetails.Company}
+                onChange={handleCompanyChange}
               />
             </Container>
             <Container sx={bodyContainerStyle}>
-            <TextField
+              <TextField
                 type="text"
                 variant="outlined"
                 label="Position"
                 sx={{ ...TextFieldStyle }}
                 fullWidth
+                value={cvDetails.Position}
+                onChange={handlePositionChange}
               />
             </Container>
-            <Container sx={{...bodyContainerStyle, display:'flex', flexDirection:'column'}}>
+            <Container sx={{ ...bodyContainerStyle, display: "flex", flexDirection: "column" }}>
               <Typography variant="body1" sx={{ ...labelStyle }}>
                 Start Date:
               </Typography>
-            <TextField
-                type="Date"
+              <TextField
+                type="date"
                 variant="outlined"
-                // label="Start Date"
                 sx={{ ...TextFieldStyle }}
                 fullWidth
+                value={cvDetails.StartDate}
+                onChange={handleStartDateChange}
               />
             </Container>
-            <Container sx={{...bodyContainerStyle, display:'flex', flexDirection:'column'}}>
+            <Container sx={{ ...bodyContainerStyle, display: "flex", flexDirection: "column" }}>
               <Typography variant="body1" sx={{ ...labelStyle }}>
                 End Date:
               </Typography>
-            <TextField
-                type="Date"
+              <TextField
+                type="date"
                 variant="outlined"
-                // label="End Date"
                 sx={{ ...TextFieldStyle }}
                 fullWidth
+                value={cvDetails.EndDate}
+                onChange={handleEndDateChange}
               />
             </Container>
             <Container sx={{ ...bodyContainerStyle, marginBottom: 2 }}>
-            <TextField
+              <TextField
                 multiline
                 rows={4}
-                placeholder="Tell us about yourself..."
+                placeholder="Tell us about your work experience..."
                 variant="outlined"
-                label="About Yourself"
+                label="Description"
                 fullWidth
+                value={cvDetails.Description}
+                onChange={handleDescriptionChange}
               />
             </Container>
           </Container>
