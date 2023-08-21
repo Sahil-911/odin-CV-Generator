@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import {
   Button,
   Container,
-  Input,
   Typography,
   IconButton,
   TextField,
 } from "@mui/material";
 import { ExpandMore, ExpandLess, Add, Remove } from "@mui/icons-material";
 
-function Projects() {
+function Projects({ cvDetails, setCVDetails }) {
   const [showMore, setShowMore] = useState(false);
   const [projects, setProjects] = useState([
     { title: "", description: "", techStack: "" },
@@ -23,6 +22,10 @@ function Projects() {
     const newProjects = [...projects];
     newProjects[index][field] = value;
     setProjects(newProjects);
+    setCVDetails((prevDetails) => ({
+      ...prevDetails,
+      Projects: newProjects,
+    }));
   };
 
   const handleAddProject = () => {
@@ -31,12 +34,20 @@ function Projects() {
       { title: "", description: "", techStack: "" },
     ];
     setProjects(newProjects);
+    setCVDetails((prevDetails) => ({
+      ...prevDetails,
+      Projects: newProjects,
+    }));
   };
 
   const handleRemoveProject = (index) => {
     const newProjects = [...projects];
     newProjects.splice(index, 1);
     setProjects(newProjects);
+    setCVDetails((prevDetails) => ({
+      ...prevDetails,
+      Projects: newProjects,
+    }));
   };
 
   const divisionStyle = {
