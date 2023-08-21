@@ -8,6 +8,7 @@ import {
 import theme from "./Theme";
 import PersonalInfo from "./PersonalInfo";
 import Workexp from "./Workexp";
+import Photo from "./Photo";
 
 const App = () => {
   const containerCommonStyle = {
@@ -53,8 +54,9 @@ const App = () => {
           <Typography variant="h4" sx={{ marginTop: 1 }}>
             Automatic CV Generator
           </Typography>
-            <PersonalInfo />
-            <Workexp />
+          <Photo />
+          <PersonalInfo />
+          <Workexp />
         </Container>
         <Container
           sx={{
