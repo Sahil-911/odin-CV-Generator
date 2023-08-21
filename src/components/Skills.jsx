@@ -59,6 +59,11 @@ function Skills() {
     marginBottom: 2,
   };
 
+  const iconStyle = {
+    marginLeft: "auto",
+    marginRight: "auto",
+  };
+
   return (
     <Container sx={{ ...divisionStyle, flexDirection: "column" }}>
       <Container sx={divisionStyle}>
@@ -75,14 +80,22 @@ function Skills() {
       {showMore && (
         <Container sx={bodyContainerStyle}>
           {skills.map((skill, index) => (
-            <Container key={index} sx={{...bodyContainerStyle, display:'flex', flexDirection:'row'}}>
+            <Container
+              key={index}
+              sx={{
+                ...bodyContainerStyle,
+                display: "flex",
+                flexDirection: "row",
+              }}
+            >
               <Input
                 type="text"
                 value={skill}
                 onChange={(e) => handleSkillChange(index, e.target.value)}
-                sx={{...inputStyle, width:'80%', marginRight:4}}
+                sx={{ ...inputStyle, width: "80%", marginRight: 4 }}
               />
               <IconButton
+                sx={iconStyle}
                 onClick={() => handleRemoveSkill(index)}
                 aria-label="Remove Skill"
               >
@@ -90,7 +103,11 @@ function Skills() {
               </IconButton>
             </Container>
           ))}
-          <IconButton onClick={handleAddSkill} aria-label="Add Skill">
+          <IconButton
+            sx={iconStyle}
+            onClick={handleAddSkill}
+            aria-label="Add Skill"
+          >
             <Add />
           </IconButton>
         </Container>
