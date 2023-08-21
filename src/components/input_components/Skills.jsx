@@ -8,9 +8,9 @@ import {
 } from "@mui/material";
 import { ExpandMore, ExpandLess, Add, Remove } from "@mui/icons-material";
 
-function Skills() {
+function Skills({ cvDetails, setCVDetails }) {
   const [showMore, setShowMore] = useState(false);
-  const [skills, setSkills] = useState([""]);
+  const [skills, setSkills] = useState(cvDetails.Skills || [""]);
 
   const handleShow = () => {
     setShowMore(!showMore);
@@ -20,17 +20,29 @@ function Skills() {
     const newSkills = [...skills];
     newSkills[index] = value;
     setSkills(newSkills);
+    setCVDetails((prevDetails) => ({
+      ...prevDetails,
+      Skills: newSkills,
+    }));
   };
 
   const handleAddSkill = () => {
     const newSkills = [...skills, ""];
     setSkills(newSkills);
+    setCVDetails((prevDetails) => ({
+      ...prevDetails,
+      Skills: newSkills,
+    }));
   };
 
   const handleRemoveSkill = (index) => {
     const newSkills = [...skills];
     newSkills.splice(index, 1);
     setSkills(newSkills);
+    setCVDetails((prevDetails) => ({
+      ...prevDetails,
+      Skills: newSkills,
+    }));
   };
 
   const divisionStyle = {
