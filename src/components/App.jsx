@@ -14,7 +14,6 @@ import Education from "./input_components/Education";
 import Projects from "./input_components/Projects";
 import { useState } from "react";
 
-
 const App = () => {
   const containerCommonStyle = {
     color: "text.primary",
@@ -23,17 +22,17 @@ const App = () => {
     flexDirection: "row",
     // alignItems: "center",
   };
-  
+
   const mainContainerStyle = {
     bgcolor: "primary.main",
     justifyContent: "center",
   };
-  
+
   const leftContainerStyle = {
     bgcolor: "primary.main",
     width: "50%",
   };
-  
+
   const rightContainerStyle = {
     bgcolor: "background.paper",
     // position: "fixed", // Set position to fixed
@@ -41,13 +40,13 @@ const App = () => {
     height: "100vh",
     overflowY: "auto",
   };
-  
+
   const pageContainerStyle = {
     bgcolor: "text.primary",
     color: "primary.main",
     height: "85vh",
   };
-  
+
   const [cvDetails, setCVDetails] = useState({
     firstName: "",
     lastName: "",
@@ -79,7 +78,12 @@ const App = () => {
           <Typography variant="h4" sx={{ marginTop: 1 }}>
             Automatic CV Generator
           </Typography>
-          <Photo cvDetails={cvDetails} setCVDetails={setCVDetails} />
+          <Photo
+            accept="image/jpeg,image/png"
+            inputLabel="Profile Picture"
+            cvDetails={cvDetails}
+            setCVDetails={setCVDetails}
+          />
           <PersonalInfo cvDetails={cvDetails} setCVDetails={setCVDetails} />
           <Workexp cvDetails={cvDetails} setCVDetails={setCVDetails} />
           <Skills cvDetails={cvDetails} setCVDetails={setCVDetails} />
