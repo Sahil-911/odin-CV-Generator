@@ -10,6 +10,7 @@ import PersonalInfo from "./PersonalInfo";
 import Workexp from "./Workexp";
 import Photo from "./Photo";
 import Skills from "./Skills";
+import Education from "./Education";
 
 const App = () => {
   const containerCommonStyle = {
@@ -62,6 +63,7 @@ const App = () => {
           <PersonalInfo />
           <Workexp />
           <Skills />
+          <Education />
         </Container>
         <Container
           sx={{

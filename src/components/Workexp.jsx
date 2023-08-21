@@ -53,7 +53,7 @@ function Workexp() {
       </Container>
       {showMore && (
         <Container sx={bodyContainerStyle}>
-          <Typography variant="body1">
+          <Container variant="body1">
             <Container sx={bodyContainerStyle}>
               <Typography
                 variant="body2"
@@ -99,7 +99,7 @@ function Workexp() {
                 style={textAreaStyle}
               />
             </Container>
-          </Typography>
+          </Container>
         </Container>
       )}
     </Container>
